@@ -42,7 +42,7 @@ public class CustomAdapter extends ArrayAdapter {
             TextView tvTitle = rowView.findViewById(R.id.textViewTitle);
             TextView tvYear = rowView.findViewById(R.id.textViewYear);
             TextView tvGenre = rowView.findViewById(R.id.textViewGenre);
-            ImageView imageViewRating = rowView.findViewById(R.id.imageView);
+            ImageView imageRating = rowView.findViewById(R.id.imageView);
 
 
             //Obtain the Android Version information based on the position
@@ -56,22 +56,22 @@ public class CustomAdapter extends ArrayAdapter {
             switch (currentVersion.getRating())
             {
                 case "PG":
-                    imageViewRating.setImageResource(R.drawable.rating_pg);
+                    imageRating.setImageResource(R.drawable.rating_pg);
                     break;
                 case "M18":
-                    imageViewRating.setImageResource(R.drawable.rating_m18);
+                    imageRating.setImageResource(R.drawable.rating_m18);
                     break;
                 case "NC16":
-                    imageViewRating.setImageResource(R.drawable.rating_nc16);
+                    imageRating.setImageResource(R.drawable.rating_nc16);
                     break;
                 case "G":
-                    imageViewRating.setImageResource(R.drawable.rating_g);
+                    imageRating.setImageResource(R.drawable.rating_g);
                     break;
                 case "PG13":
-                    imageViewRating.setImageResource(R.drawable.rating_pg13);
+                    imageRating.setImageResource(R.drawable.rating_pg13);
                     break;
                 case "R21":
-                    imageViewRating.setImageResource(R.drawable.rating_r21);
+                    imageRating.setImageResource(R.drawable.rating_r21);
                     break;
             }
 

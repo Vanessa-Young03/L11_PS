@@ -2,6 +2,7 @@ package sg.edu.rp.c346.id22038532.l11_ps;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -9,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText etMovieTitle, etMovieGenre, etMovieYear;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         etMovieYear = findViewById(R.id.editTextMovieYear);
         btnInsert = findViewById(R.id.buttonInsert);
         btnShowList = findViewById(R.id.buttonShowList);
+        spinningRating = findViewById(R.id.spinnerRating);
 
         DBHelper db = new DBHelper(MainActivity.this);
 
@@ -70,9 +73,24 @@ public class MainActivity extends AppCompatActivity {
         btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                db.insertMovie(etMovieTitle.getText().toString(), etMovieGenre.getText().toString(), Integer.parseInt(String.valueOf(etMovieYear.getText())), rating);
 
+                etMovieTitle.setText("");
+                etMovieGenre.setText("");
+                etMovieYear.setText("");
+
+                Toast.makeText(MainActivity.this, "Successfully Added Movie", Toast.LENGTH_SHORT).show();
             }
         });
+
+        btnShowList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ShowListActivity.class));
+            }
+        });
+
+
 
 
 

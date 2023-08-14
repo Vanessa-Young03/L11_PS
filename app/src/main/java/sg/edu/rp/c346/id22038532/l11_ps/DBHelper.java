@@ -28,7 +28,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-    public void insertMovie(String title, String genre, String year, String rating) {
+    public void insertMovie(String title, String genre, int year, String rating) {
         //Get an instance of the database for writing
         SQLiteDatabase db = this.getWritableDatabase();
         //Use ContentValues object to store the values for the db operation
@@ -104,7 +104,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList <Movies> getMovies() {
-        ArrayList<Movies> songs = new ArrayList<Movies>();
+        ArrayList<Movies> movies = new ArrayList<Movies>();
         SQLiteDatabase db = this.getReadableDatabase();
         String[] columns = {COLUMN_ID, COLUMN_TITLE, COLUMN_GENRE, COLUMN_YEAR, COLUMN_RATE};
         Cursor cursor = db.query(TABLE_MOVIE, columns, null, null, null, null, null, null);
@@ -117,12 +117,12 @@ public class DBHelper extends SQLiteOpenHelper {
                 int years = cursor.getInt(3);
                 String rating = cursor.getString(4);
                 Movies obj = new Movies(id,title,genre,years,rating);
-                songs.add(obj);
+                movies.add(obj);
             } while (cursor.moveToNext());
         }
         cursor.close();
         db.close();
-        return songs;
+        return movies;
     }
 
 
