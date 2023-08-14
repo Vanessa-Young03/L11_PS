@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -41,7 +42,7 @@ public class CustomAdapter extends ArrayAdapter {
             TextView tvTitle = rowView.findViewById(R.id.textViewTitle);
             TextView tvYear = rowView.findViewById(R.id.textViewYear);
             TextView tvGenre = rowView.findViewById(R.id.textViewGenre);
-            Spinner SRating = rowView.findViewById(R.id.spinnerRating);
+            ImageView imageViewRating = rowView.findViewById(R.id.imageView);
 
 
             //Obtain the Android Version information based on the position
@@ -49,12 +50,33 @@ public class CustomAdapter extends ArrayAdapter {
 
             //Set values to the TextView to display the corresponding information
             tvTitle.setText(currentVersion.getTitle());
-            tvYear.setText(currentVersion.getYears());
+            tvYear.setText(String.valueOf(currentVersion.getYears()));
             tvGenre.setText(currentVersion.getGenre());
 
+            switch (currentVersion.getRating())
+            {
+                case "PG":
+                    imageViewRating.setImageResource(R.drawable.rating_pg);
+                    break;
+                case "M18":
+                    imageViewRating.setImageResource(R.drawable.rating_m18);
+                    break;
+                case "NC16":
+                    imageViewRating.setImageResource(R.drawable.rating_nc16);
+                    break;
+                case "G":
+                    imageViewRating.setImageResource(R.drawable.rating_g);
+                    break;
+                case "PG13":
+                    imageViewRating.setImageResource(R.drawable.rating_pg13);
+                    break;
+                case "R21":
+                    imageViewRating.setImageResource(R.drawable.rating_r21);
+                    break;
+            }
 
 
             return rowView;
         }
     }
-    
+

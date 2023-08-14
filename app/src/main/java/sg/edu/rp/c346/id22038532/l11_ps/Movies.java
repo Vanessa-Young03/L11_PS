@@ -7,9 +7,9 @@ public class Movies implements Serializable{
         private String title;
         private String genre;
         private int years;
-        private int rating;
+        private String rating;
 
-    public Movies(int id, String title, String genre, int years, int rating) {
+    public Movies(int id, String title, String genre, int years, String rating) {
         this.id = id;
         this.title = title;
         this.genre = genre;
@@ -49,11 +49,11 @@ public class Movies implements Serializable{
         this.years = years;
     }
 
-    public int getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 }

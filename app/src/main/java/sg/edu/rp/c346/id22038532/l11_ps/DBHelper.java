@@ -44,7 +44,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public ArrayList<String> getSongContent()
+    public ArrayList<String> getMovieContent()
     {
         //Create an ArrayList that holds String objects
         ArrayList<String> movies = new ArrayList<String>();
@@ -78,7 +78,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return movies;
     }
 
-    public int updateSong(Movies data)
+    public int updateMovie(Movies data)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -93,7 +93,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return result;
     }
 
-    public int deleteSong(int id)
+    public int deleteMovie(int id)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         String condition = COLUMN_ID + "= ?";
@@ -103,7 +103,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return result;
     }
 
-    public ArrayList <Movies> getSong() {
+    public ArrayList <Movies> getMovies() {
         ArrayList<Movies> songs = new ArrayList<Movies>();
         SQLiteDatabase db = this.getReadableDatabase();
         String[] columns = {COLUMN_ID, COLUMN_TITLE, COLUMN_GENRE, COLUMN_YEAR, COLUMN_RATE};
@@ -115,7 +115,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 String title = cursor.getString(1);
                 String genre = cursor.getString(2);
                 int years = cursor.getInt(3);
-                int rating = cursor.getInt(4);
+                String rating = cursor.getString(4);
                 Movies obj = new Movies(id,title,genre,years,rating);
                 songs.add(obj);
             } while (cursor.moveToNext());
