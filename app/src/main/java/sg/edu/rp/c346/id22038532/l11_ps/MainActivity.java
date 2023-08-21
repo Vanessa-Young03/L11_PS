@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     EditText etMovieTitle, etMovieGenre, etMovieYear;
     Button btnInsert, btnShowList;
     Spinner spinningRating;
+
+    CustomAdapter caMovie;
     String rating = "";
 
     @Override
@@ -32,15 +34,9 @@ public class MainActivity extends AppCompatActivity {
 
         DBHelper db = new DBHelper(MainActivity.this);
 
-        String[] ratingArray ={"G", "PG", "PG13", "NC16", "M18", "R21"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinnerlayout, ratingArray);
-        spinningRating.setAdapter(adapter);
-
-
-
         spinningRating.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int rate, long l) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int rate, long id) {
                 switch (rate)
                 {
                     case 0:
