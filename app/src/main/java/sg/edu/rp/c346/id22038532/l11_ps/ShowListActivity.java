@@ -17,6 +17,7 @@ public class ShowListActivity extends AppCompatActivity {
     Button btnBack;
     ArrayAdapter<Movies> aaMovies;
     ArrayList<Movies> alMovies;
+    Movies data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
