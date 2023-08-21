@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     Spinner spinningRating;
 
     CustomAdapter caMovie;
-    String rating = "";
+    String ratings = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,22 +40,22 @@ public class MainActivity extends AppCompatActivity {
                 switch (rate)
                 {
                     case 0:
-                        rating = "G";
+                        ratings = "G";
                         break;
                     case 1:
-                        rating = "PG";
+                        ratings = "PG";
                         break;
                     case 2:
-                        rating = "PG13";
+                        ratings = "PG13";
+                        break;
+                    case 3:
+                        ratings = "NC16";
                         break;
                     case 4:
-                        rating = "NC16";
+                        ratings = "M18";
                         break;
                     case 5:
-                        rating = "M18";
-                        break;
-                    case 6:
-                        rating = "R21";
+                        ratings = "R21";
                         break;
                 }
             }
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                db.insertMovie(etMovieTitle.getText().toString(), etMovieGenre.getText().toString(), Integer.parseInt(String.valueOf(etMovieYear.getText())), rating);
+                db.insertMovie(etMovieTitle.getText().toString(), etMovieGenre.getText().toString(), Integer.parseInt(String.valueOf(etMovieYear.getText())), String.valueOf(ratings));
 
                 etMovieTitle.setText("");
                 etMovieGenre.setText("");

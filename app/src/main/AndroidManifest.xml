@@ -13,6 +13,9 @@
         android:theme="@style/Theme.L11_PS"
         tools:targetApi="31">
         <activity
+            android:name=".Update_Delete"
+            android:exported="false" />
+        <activity
             android:name=".ShowListActivity"
             android:exported="false" />
         <activity

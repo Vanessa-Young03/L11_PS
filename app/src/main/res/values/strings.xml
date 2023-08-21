@@ -16,10 +16,5 @@
     </string-array>
 
 
-<!--    String[] ratingArray = {"G", "PG", "PG13", "NC16", "M18", "R21"};-->
-<!--    ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinnerlayout, ratingArray);-->
-<!--    spinningRating.setAdapter(adapter);-->
-
-
 
 </resources>

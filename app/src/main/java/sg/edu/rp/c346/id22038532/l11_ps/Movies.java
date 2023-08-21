@@ -56,4 +56,14 @@ public class Movies implements Serializable{
     public void setRating(String rating) {
         this.rating = rating;
     }
+
+    @Override
+    public String toString() {
+        return
+                "Id = " + id + '\n' +
+                "Title = " + title + '\n' +
+                "Genre = " + genre + '\n' +
+                "Years = " + years + '\n' +
+                "Rating = " + rating;
+    }
 }
